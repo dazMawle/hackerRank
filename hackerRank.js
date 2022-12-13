@@ -72,5 +72,18 @@ var strings = ['a', 'a', 'z', 'c'];
 // console.log(matchingStrings(strings, queries));
 
 
+// *********************************************************
+// *********************************************************
 
+// Given an array of integers, where all elements but one occur twice,
+// find the unique element.
 
+const lonelyInteger = (a) => {
+    a.sort()
+    for(let i = 0; i < a.length; i++){
+        if(a[i] !== a[i+1] && a[i] !== a[i-1]){return a[i];}
+    };
+}
+
+// var testArr = [9,9,4,2,0,6,7,4,5,5,1,2,1,6,7];
+// console.log(lonelyInteger(testArr));
