@@ -87,3 +87,23 @@ const lonelyInteger = (a) => {
 
 // var testArr = [9,9,4,2,0,6,7,4,5,5,1,2,1,6,7];
 // console.log(lonelyInteger(testArr));
+
+
+// *********************************************************
+// *********************************************************
+
+// You will be given a list of 32 bit unsigned integers. 
+// Flip all the bits (0 -> 1 and 1 -> 0) and return the result as an unsigned integer.
+
+const flippingBits = (n) => {
+    var numString = (n >>> 0).toString(2).padStart(32, '0');
+    var numSplit = numString.split('');
+    numSplit.forEach((element, index) => {
+        if(element == 1){numSplit[index] = 0}else{numSplit[index] = 1};
+    });
+    var joinedString = numSplit.join('');
+    return parseInt(joinedString, 2);
+}
+
+console.log(flippingBits(1));
+
