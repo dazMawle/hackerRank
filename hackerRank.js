@@ -105,5 +105,34 @@ const flippingBits = (n) => {
     return parseInt(joinedString, 2);
 }
 
-console.log(flippingBits(1));
+// console.log(flippingBits(1));
 
+
+// *********************************************************
+// *********************************************************
+
+// Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+const diagonalDifference = (arr) => {
+    var d1 = 0;
+    var d2 = 0; 
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length; j++){
+            if(i === j){
+                d1 += arr[i][j];
+            }
+            if(i + j === arr.length -1){
+                d2 += arr[i][j];
+            }
+        }
+    }
+    return Math.abs(d1 - d2);
+}
+
+const arr = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [9, 8, 9]
+ ];
+
+console.log(diagonalDifference(arr));
