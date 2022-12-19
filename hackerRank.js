@@ -129,10 +129,30 @@ const diagonalDifference = (arr) => {
     return Math.abs(d1 - d2);
 }
 
-const arr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [9, 8, 9]
- ];
+// const arr = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [9, 8, 9]
+//  ];
 
-console.log(diagonalDifference(arr));
+// console.log(diagonalDifference(arr));
+
+
+// *********************************************************
+// *********************************************************
+
+
+// Given a list of integers, count and return the number of 
+// times each value appears as an array of integers.
+
+const countingSort = (arr) => {
+    var auxArr = Array(100).fill(0);
+    for(let i = 0; i < arr.length; i++){
+        auxArr[arr[i]]++;
+    }
+    return auxArr;
+}
+
+const arr = [1,3,4,10,7,3,8,9,9,0];
+
+// console.log(countingSort(arr));
