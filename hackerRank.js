@@ -1,3 +1,4 @@
+const { reduce } = require("lodash");
 
 function plusMinus(arr) {
     var resArr = [0,0,0];
@@ -156,3 +157,24 @@ const countingSort = (arr) => {
 const arr = [1,3,4,10,7,3,8,9,9,0];
 
 // console.log(countingSort(arr));
+
+
+// *********************************************************
+// *********************************************************
+
+// A pangram is a string that contains every letter of the alphabet. 
+// Given a sentence determine whetherit is a pangram in the English alphabet.
+// Ignore case. Return either pangram or not pangram as appropriate.
+
+const readLine = (string) => {
+    const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    const lCString = string.toLowerCase().split('');
+    alphabet.forEach((element, index) =>{
+        if(lCString.includes(element)){alphabet[index] = ''};
+    });
+    const joinedAplh = alphabet.join('');
+    if(joinedAplh === ''){return 'pangram'};
+    return 'not pangram';
+}
+
+console.log(readLine('The quick brown fox jumps over the lazy dog'));
