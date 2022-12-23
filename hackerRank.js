@@ -1,4 +1,7 @@
+const { copyFileSync } = require("fs");
+const { not } = require("is");
 const { reduce } = require("lodash");
+const { tmpdir } = require("os");
 
 function plusMinus(arr) {
     var resArr = [0,0,0];
@@ -177,4 +180,86 @@ const readLine = (string) => {
     return 'not pangram';
 }
 
-console.log(readLine('The quick brown fox jumps over the lazy dog'));
+// console.log(readLine('The quick brown fox jumps over the lazy dog'));
+
+
+// *********************************************************
+// *********************************************************
+
+// There are two n-element arrays of integers, A and B. Permute them into some A' and B'
+// such that the relation A'[i]+B'[i] >= k holds for all  where 0 <= i < n.
+// There will be q queries consisting of A, B, and k. For each query, return YES 
+// if some permutation A', B' satisfying the relation exists. Otherwise, return NO.
+
+const twoArrays = (a, b, k) => {
+    a.sort((a,b) =>{ return a - b});
+    b.sort((a,b) =>{ return b - a});
+    console.log(a, b) 
+
+    for(let i = 0; i < a.length; i++){
+        console.log(a[i], b[i])
+        if(a[i] + b[i] < k){
+            return 'NO';
+        }
+    }
+    return 'YES';
+    // var count = 0;
+    // for(let i = 0; i < sortedA.length; i++){
+    //     for(let j = 0; j < reversedB.length; j++){
+    //         if(sortedA[i] + reversedB[j] >= k){
+    //             count++;
+    //         }
+    //     }
+    // }
+    // return (count === sortedA.length) ? 'YES':'NO';
+}
+    // var tempArr = [];
+    // var numMoreThanZero = 0
+    // a.forEach((element)=>{
+    //     if(k - element > 0){
+    //         tempArr.push(k - element);
+    //         numMoreThanZero++;
+    //     }
+    // });
+    // console.log(tempArr);
+    // b.forEach((element, index)=>{
+    //     if(b.includes(tempArr[index])){
+    //         numMoreThanZero--;
+    //         console.log(numMoreThanZero);
+    //     }
+    // });
+    // return (numMoreThanZero === 0) ? 'YES':'NO';
+
+const a = [1,2,2,1];
+const b = [3,3,3,4];
+const k = [5];
+
+console.log(twoArrays(a,b,k));
+
+ // var notEqual = [];
+    // for(let i = 0; i < a.length; i++){
+    //     if(a[i] + b[i] < k){
+    //         notEqual.push(a[i], b[i]);
+    //     }
+    // }
+    // console.log(notEqual);
+
+    // a.forEach((element, index) => {
+    //     if(element + b[index] < k){ //element + b[index] != k || 
+    //         console.log('yes');
+    //     }else{
+    //         console.log('No');
+    //     }
+    // });
+    // var diffArr = [];
+    // a.forEach((element) => {
+    //     diffArr.push(k - element);
+    // });
+    // console.log(diffArr);
+    // b.forEach((element, index) => {
+    //     console.log(element, diffArr[index]);
+    //     if(element < diffArr[index]){
+    //         return 'No';
+    //     }
+    // });
+    // return 'yes';   
