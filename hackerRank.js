@@ -203,63 +203,12 @@ const twoArrays = (a, b, k) => {
         }
     }
     return 'YES';
-    // var count = 0;
-    // for(let i = 0; i < sortedA.length; i++){
-    //     for(let j = 0; j < reversedB.length; j++){
-    //         if(sortedA[i] + reversedB[j] >= k){
-    //             count++;
-    //         }
-    //     }
-    // }
-    // return (count === sortedA.length) ? 'YES':'NO';
 }
-    // var tempArr = [];
-    // var numMoreThanZero = 0
-    // a.forEach((element)=>{
-    //     if(k - element > 0){
-    //         tempArr.push(k - element);
-    //         numMoreThanZero++;
-    //     }
-    // });
-    // console.log(tempArr);
-    // b.forEach((element, index)=>{
-    //     if(b.includes(tempArr[index])){
-    //         numMoreThanZero--;
-    //         console.log(numMoreThanZero);
-    //     }
-    // });
-    // return (numMoreThanZero === 0) ? 'YES':'NO';
 
 const a = [1,2,2,1];
 const b = [3,3,3,4];
 const k = [5];
 
-console.log(twoArrays(a,b,k));
+// console.log(twoArrays(a,b,k));
 
- // var notEqual = [];
-    // for(let i = 0; i < a.length; i++){
-    //     if(a[i] + b[i] < k){
-    //         notEqual.push(a[i], b[i]);
-    //     }
-    // }
-    // console.log(notEqual);
 
-    // a.forEach((element, index) => {
-    //     if(element + b[index] < k){ //element + b[index] != k || 
-    //         console.log('yes');
-    //     }else{
-    //         console.log('No');
-    //     }
-    // });
-    // var diffArr = [];
-    // a.forEach((element) => {
-    //     diffArr.push(k - element);
-    // });
-    // console.log(diffArr);
-    // b.forEach((element, index) => {
-    //     console.log(element, diffArr[index]);
-    //     if(element < diffArr[index]){
-    //         return 'No';
-    //     }
-    // });
-    // return 'yes';   
