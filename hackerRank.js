@@ -1,7 +1,4 @@
-const { copyFileSync } = require("fs");
-const { not } = require("is");
-const { reduce } = require("lodash");
-const { tmpdir } = require("os");
+
 
 function plusMinus(arr) {
     var resArr = [0,0,0];
@@ -211,4 +208,70 @@ const k = [5];
 
 // console.log(twoArrays(a,b,k));
 
+// *********************************************************
+// *********************************************************
 
+// Two children, Lily and Ron, want to share a chocolate bar. Each of the squares has an integer on it.
+// Lily decides to share a contiguous segment of the bar selected such that:
+// The length of the segment matches Ron's birth month, and,
+// The sum of the integers on the squares is equal to his birth day.
+// Determine how many ways she can divide the chocolate.
+
+const birthday = (s, d, m) => {
+    var count = 0;    
+    for(let i = 0; i < s.length; i++){
+        const sliced = s.slice(i, i+m);
+        var sumOfSliced = sliced.reduce((a,b)=>{return a+b});
+        if(sumOfSliced === d){count++}
+    }
+    return count;
+}
+
+const s = [1,2,1,3,2];
+const d = 3;
+const m = 2;
+
+
+// *********************************************************
+// *********************************************************
+
+
+// TEST 1
+
+let array = [0,2,4,6,5,7];
+
+const findMedian = (arr) => {
+    var sortedArr = arr.sort((a,b)=>{return a - b});
+    return sortedArr[Math.floor(sortedArr.length / 2)];
+}
+
+// console.log(findMedian(array));
+
+
+const flippingMatrix = (matrix) => {
+
+    let n = matrix.length / 2;
+    let max = 0;
+    let total = 0;
+    
+    for(let i = 0; i < n; i++){
+        for(let j = 0; j < n; j++){
+            max = Number.MIN_VALUE;
+            max = Math.max(matrix[i][j], max);
+            max = Math.max(matrix[i][2 * n - j -1], max);
+            max = Math.max(matrix[2 * n - i - 1][j], max);
+            max = Math.max(matrix[2 * n - i - 1][2 * n - j - 1], max);
+            total += max;
+        }
+    }
+    return total;
+}
+
+const testMatrix = [[112,42,83,119],[56,125,56,49],[15,78,101,43],[62,98,114,108]];
+
+// console.log(flippingMatrix(testMatrix));
+
+
+
+
+        
