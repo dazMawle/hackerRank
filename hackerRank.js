@@ -273,6 +273,7 @@ const testMatrix = [[112,42,83,119],[56,125,56,49],[15,78,101,43],[62,98,114,108
 
 // console.log(flippingMatrix(testMatrix));
 
+
 // *********************************************************
 // *********************************************************
 
@@ -295,4 +296,22 @@ const sockMerchant = (ar) => {
 }
 
 // console.log(sockMerchant(arr2));
-        
+
+
+// *********************************************************
+// *********************************************************
+
+
+// A teacher asks the class to open their books to a page number. 
+// A student can either start turning pages from the front of the book or 
+// from the back of the book. They always turn pages one at a time......
+
+
+function drawingBook(n, p) {
+    var start = Math.floor(p/2);
+    var end = Math.floor((n/2) - start);
+    return Math.min(start, end);
+}
+
+console.log(drawingBook(6, 5));
+
