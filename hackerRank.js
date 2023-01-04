@@ -313,5 +313,22 @@ function drawingBook(n, p) {
     return Math.min(start, end);
 }
 
-console.log(drawingBook(6, 5));
+// console.log(drawingBook(6, 5));
+
+// *********************************************************
+// *********************************************************
+
+
+// Two players are playing a game of Tower Breakers! Player always
+// moves first, and both players always play optimally.The rules of 
+// the game are as follows....
+
+const towerBreakers = (n, m) => {
+   if(m === 1){return 2};
+   if(n % 2 !== 0){return 1}else{return 2};
+}
+
+console.log(towerBreakers(2, 4));
+
+
 
