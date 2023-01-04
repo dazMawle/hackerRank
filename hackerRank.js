@@ -1,3 +1,5 @@
+const { forEach } = require("lodash");
+const { start } = require("repl");
 
 
 function plusMinus(arr) {
@@ -271,7 +273,26 @@ const testMatrix = [[112,42,83,119],[56,125,56,49],[15,78,101,43],[62,98,114,108
 
 // console.log(flippingMatrix(testMatrix));
 
+// *********************************************************
+// *********************************************************
 
 
+// There is a large pile of socks that must be paired by color. Given an array of 
+// integers representing the color of each sock, determine how many pairs of socks
+// with matching colors there are.
 
+var arr2 = [6,5,2,3,5,2,2,1,1,5,1,3,3,3,5];
+
+
+const sockMerchant = (ar) => {
+    var paircount = 0
+    var count = 0;
+    var sorted = ar.sort()
+    for(let i = 0; i < sorted.length;  i++){
+        count++
+        if(sorted[i] != sorted[i+1]){paircount += Math.floor(count / 2); count = 0;}
+    }       
+}
+
+// console.log(sockMerchant(arr2));
         
