@@ -1,4 +1,4 @@
-const { forEach } = require("lodash");
+const { forEach, result } = require("lodash");
 const { start } = require("repl");
 
 
@@ -328,7 +328,25 @@ const towerBreakers = (n, m) => {
    if(n % 2 !== 0){return 1}else{return 2};
 }
 
-console.log(towerBreakers(2, 4));
+// console.log(towerBreakers(2, 4));
 
+// *********************************************************
+// *********************************************************
 
+const caesarCipher = (s, k) => {
+    const lowerC = "abcdefghijklmnopqrstuvwxyz";
+    const upperC = lowerC.toUpperCase();
+    const newStr = s.split("").map(cc => {
+        if(lowerC.includes(cc)){
+            return lowerC[(lowerC.indexOf(cc) + k) % 26];
+        }else if (upperC.includes(cc)){
+            return upperC[(upperC.indexOf(cc) + k) % 26];
+        }else{
+            return cc;
+        }
+    });
+    return newStr.join("");
+}
+
+// console.log(caesarCipher('Ab-c', 27));
 
