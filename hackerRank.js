@@ -1,6 +1,7 @@
-const { forEach, result } = require("lodash");
-const { start } = require("repl");
 
+// Given an array of integers, calculate the ratios of its elements that are 
+// positive, negative, and zero. Print the decimal value of each fraction on
+// a new line with 6 places after the decimal.
 
 function plusMinus(arr) {
     var resArr = [0,0,0];
@@ -20,6 +21,10 @@ function plusMinus(arr) {
 // *********************************************************
 
 // const arr = [9,7,1,3,5];
+
+// Given five positive integers, find the minimum and maximum values that can
+// be calculated by summing exactly four of the five integers. Then print the
+// respective minimum and maximum values as a single line of two space-separated long integers.
 
 function miniMaxSum(arr) {
     arr.sort((a,b) => {return a - b});
@@ -304,7 +309,7 @@ const sockMerchant = (ar) => {
 
 // A teacher asks the class to open their books to a page number. 
 // A student can either start turning pages from the front of the book or 
-// from the back of the book. They always turn pages one at a time......
+// from the back of the book. They always turn pages one at a time...
 
 
 function drawingBook(n, p) {
@@ -333,6 +338,12 @@ const towerBreakers = (n, m) => {
 // *********************************************************
 // *********************************************************
 
+// Julius Caesar protected his confidential information by encrypting it
+// using a cipher. Caesar's cipher shifts each letter by a number of letters.
+// If the shift takes you past the end of the alphabet, just rotate back to the
+// front of the alphabet. In the case of a rotation by 3, w, x, y and z would map 
+// to z, a, b and c.
+
 const caesarCipher = (s, k) => {
     const lowerC = "abcdefghijklmnopqrstuvwxyz";
     const upperC = lowerC.toUpperCase();
@@ -349,4 +360,56 @@ const caesarCipher = (s, k) => {
 }
 
 // console.log(caesarCipher('Ab-c', 27));
+
+// *********************************************************
+// *********************************************************
+
+// You will be given a list of integers, arr, and a single integer k.
+// You must create an array of length k from elements of such that 
+// its unfairness is minimized...
+
+const maxMin = (k, arr) => {
+    arr.sort((a,b) => {return a-b});
+    let mD = Number.MAX_VALUE;
+    for(i = 0; i < arr.length - k + 1; i++){
+        let d = arr[i + k -1] - arr[i];
+        mD = Math.min(d, mD);
+    }
+    return mD;
+}
+
+// const maxArr = [1,200,3,40,10,20,30,4,100,2];
+// console.log(maxMin(4, maxArr));
+
+
+// *********************************************************
+// *********************************************************
+
+// Declare a 2-dimensional array, arr , of n empty arrays. All arrays are zero indexed.
+// Declare an integer, lastAnswer , and initialize it to 0.
+// There are 2 types of queries, given as an array of strings for you to parse...
+
+const dynamicArray = (n, queries) => {
+    let lastAnswer = 0;
+    let answersArray = [];
+    const arr = [];
+    for(let i = 0; i < n; i++){
+        arr[i] = new Array();
+    }
+    for(let i = 0; i < queries.length; i++){
+        var idx = ((queries[i][1] ^ lastAnswer) % n);
+        if(queries[i][0] == 1){
+            arr[idx].push(queries[i][2]);
+        }else{
+            lastAnswer = arr[idx][queries[i][2] % arr[idx].length];
+            answersArray.push(lastAnswer);
+        }
+    }
+    return answersArray;
+}
+//xOR = ^
+// console.log(dynamicArray(2, [ [ 1, 0, 5 ], [ 1, 1, 7 ], [ 1, 0, 3 ], [ 2, 1, 0 ], [ 2, 1, 1 ] ]));
+
+// *********************************************************
+// *********************************************************
 
