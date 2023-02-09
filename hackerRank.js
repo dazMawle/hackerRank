@@ -413,3 +413,27 @@ const dynamicArray = (n, queries) => {
 // *********************************************************
 // *********************************************************
 
+// Given a square grid of characters in the range ascii[a-z], 
+// rearrange elements of each row alphabetically, ascending. 
+// Determine if the columns are also in ascending alphabetical order,
+// top to bottom. Return YES if they are or NO if they are not.
+
+const gridChallenge = (grid) => {
+
+    let sortedArr = [];
+    for(let i = 0; i < grid.length; i++){
+        var element = grid[i].split('').sort();
+        sortedArr.push(element);
+    }
+    let columnLen = sortedArr[0].length;
+    for(let i = 0; i < sortedArr.length -1; i++){
+        for(let j = 0; j < columnLen; j++){
+            if(sortedArr[i][j] > sortedArr[i+1][j]){
+                return 'NO';
+            }    
+        }
+    }
+    return 'YES';
+}
+
+console.log(gridChallenge(['abcd','mpxz','wlmf']));
