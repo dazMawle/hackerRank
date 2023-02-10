@@ -436,4 +436,29 @@ const gridChallenge = (grid) => {
     return 'YES';
 }
 
-console.log(gridChallenge(['abcd','mpxz','wlmf']));
+// console.log(gridChallenge(['abcd','mpxz','wlmf']));
+
+
+// *********************************************************
+// *********************************************************
+
+// Watson gives Sherlock an array of integers. His challenge is to find an element
+// of the array such that the sum of all elements to the left is equal to the sum 
+// of all elements to the right.
+
+const balancedSums = (arr) => {
+    if(arr.length == 1){return 'YES'};
+    let startCount = 0;
+    let endCount = 0;
+    for(i = 0; i < arr.length; i++){endCount += arr[i]}
+    for(i = 0; i < arr.length; i++){
+        endCount -= arr[i];
+        if(startCount == endCount){
+            return 'YES';
+        }
+        startCount += arr[i];
+    }
+    return 'NO';
+}
+
+// console.log(balancedSums([7,3,6,8,2,5,3,6]))
