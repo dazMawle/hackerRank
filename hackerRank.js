@@ -476,7 +476,7 @@ const balancedSums = (arr) => {
 const superDigit = (n, k) => {
     if(Number(n) < 10){return Number(n)};
     let total = 0;
-    n.split('').forEach((e)=>{total += parseInt(e)})
+    n.split('').forEach((e)=>{total += Number(e)})
     let stringTotal = (total * k).toString();
     return superDigit(stringTotal, 1);
 }
