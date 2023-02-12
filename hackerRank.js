@@ -462,3 +462,23 @@ const balancedSums = (arr) => {
 }
 
 // console.log(balancedSums([7,3,6,8,2,5,3,6]))
+
+
+// *********************************************************
+// *********************************************************
+
+// We define super digit of an integer x using the following rules:
+// Given an integer, we need to find the super digit of the integer.
+// If x has only 1 digit, then its super digit is x.
+// Otherwise, the super digit of x is equal to the super digit of the sum of the digits of x.
+// Complete the function superDigit in the editor below. It must return the calculated super digit as an integer.
+
+const superDigit = (n, k) => {
+    if(Number(n) < 10){return Number(n)};
+    let total = 0;
+    n.split('').forEach((e)=>{total += parseInt(e)})
+    let stringTotal = (total * k).toString();
+    return superDigit(stringTotal, 1);
+}
+
+// console.log(superDigit('9875', 4));
