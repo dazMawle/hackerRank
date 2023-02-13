@@ -482,3 +482,31 @@ const superDigit = (n, k) => {
 }
 
 // console.log(superDigit('9875', 4));
+
+
+// *********************************************************
+// *********************************************************
+
+// Louise and Richard have developed a numbers game. They pick a number and check
+// to see if it is a power of 2. If it is, they divide it by 2. If not, they reduce
+// it by the next lower number which is a power of 2. Whoever reduces the number to  
+// 1 wins the game. Louise always starts. Given an initial value, determine who wins the game.
+
+const counterGame = (n) => {
+    if (n === 1) return 'Richard';
+    let count = 0;
+    while (n > 1) {
+      const log2 = Math.log2(n);
+      if (Number.isInteger(log2)) {
+        count += log2;
+        break;   
+      } else {
+        count++;
+        n -= Math.pow(2, Math.floor(log2));
+      }
+    }
+    return count % 2 === 1 ? 'Louise' : 'Richard';
+}
+
+// console.log(counterGame(64));
+
