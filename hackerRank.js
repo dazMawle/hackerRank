@@ -510,3 +510,21 @@ const counterGame = (n) => {
 
 // console.log(counterGame(64));
 
+// *********************************************************
+// *********************************************************
+
+// Given an integer n, find each x such that: n + x = n ^ x
+// where ^ denotes the bitwise XOR operator. Return the number of x's satisfying the criteria.
+
+const sumXor = (num) => {
+    if(num === 0){return 1};
+    let binary = (num).toString(2);
+    let zeroCount = 0;
+    binary.split('').forEach((bit) =>{
+        if(bit === '0')(zeroCount++);
+    });
+    return 2 ** zeroCount;
+}
+
+// console.log(sumXor(1099511627776));
+
