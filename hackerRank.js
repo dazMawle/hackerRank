@@ -542,18 +542,19 @@ const minimumBribes = (q) => {
     for(let i = 0; i < q.length; i++){
         var jumps = q[i] - (i+1); 
         if(jumps > 2){
-            return 'Too Chaotic';
+            console.log('Too chaotic');
+            return;
         }else if(i+1 < q[i]){
             count+= jumps;
         }else{
             for(let j = i+1; j < q.length; j++){
                 if(q[i] > q[j]){
-                    count++
+                    count++;
                 }
             }
         }
     }
-    return `${count}`;
+    console.log(count);
 }
 const q = [1,2,5,3,7,8,6,4];
 
