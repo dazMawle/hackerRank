@@ -528,3 +528,34 @@ const sumXor = (num) => {
 
 // console.log(sumXor(1099511627776));
 
+// *********************************************************
+// *********************************************************
+
+// As long as you error check first, you can take advantage of the fact that
+// elements/people will never move more than two spaces left / forwards.
+// Use this to count/sort from the end.
+
+const minimumBribes = (q) => {
+   
+    let count = 0;
+
+    for(let i = 0; i < q.length; i++){
+        var jumps = q[i] - (i+1); 
+        if(jumps > 2){
+            return 'Too Chaotic';
+        }else if(i+1 < q[i]){
+            count+= jumps;
+        }else{
+            for(let j = i+1; j < q.length; j++){
+                if(q[i] > q[j]){
+                    count++
+                }
+            }
+        }
+    }
+    return `${count}`;
+}
+const q = [1,2,5,3,7,8,6,4];
+
+// console.log(minimumBribes(q));
+
