@@ -560,3 +560,47 @@ const q = [1,2,5,3,7,8,6,4];
 
 // console.log(minimumBribes(q));
 
+
+// *********************************************************
+// *********************************************************
+
+// Sherlock considers a string to be valid if all characters of the string appear
+// the same number of times. It is also valid if he can remove just 1 character at 1
+// index in the string, and the remaining characters will occur the same number of times. 
+// Given a string , determine if it is valid. If so, return YES, otherwise return NO.
+
+
+const isValid = (string) => {
+    let object = {};
+    let avCount = 0;
+
+    for(let i = 0; i < string.length; i++){
+        if(object[string[i]]){
+            object[string[i]]++;
+            avCount++
+        }else{
+            object[string[i]] = 1;
+            avCount++
+        }
+    }    
+    
+    let values = Object.values(object);
+    let average = Math.round(avCount / values.length);
+    let diffCount = 0;
+
+    for(let i = 0; i < values.length; i++){
+        if(Math.abs(values[i] - values[i - 1]) > average){
+            diffCount += (values[i] - average);
+        }else{
+            diffCount += Math.abs(values[i] - average);
+        }
+    }
+    if(diffCount > 1)return 'NO';
+    return 'YES';
+}
+
+
+let string = 'abbccc';
+
+// console.log(isValid(string));
+
